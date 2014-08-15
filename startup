@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+# Just debuging
+echo "Starting!!!"
+
+spdo_dir=${INSTALL_DIR:-"/var/interlegis/spdo"}
+$spdo_dir/zinstance/bin/zopepy $spdo_dir/zinstance/src/il.spdo/il/spdo/db.py
+exec supervisord

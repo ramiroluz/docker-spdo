@@ -1,0 +1,19 @@
+spdo:
+  build: .
+  ports:
+    - "8380:8380"
+  links:
+    - mysql
+mysql:
+  image: wiliamsouza/docker-mysql
+  ports:
+    - "3306:3306"
+  volumes:
+    - /home/ramiro/.containers/spdo/volumes/mysql/log:/var/log/mysql
+    - /home/ramiro/.containers/spdo/volumes/mysql/lib:/var/lib/mysql
+    - /home/ramiro/.containers/spdo/volumes/mysql/conf.d:/etc/mysql/conf.d
+  environment:
+    MYSQL_ROOT_PASSWORD: interlegis
+    MYSQL_DATABASE: spdo
+    MYSQL_USER: admin
+    MYSQL_PASSWORD: 12345
