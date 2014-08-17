@@ -68,9 +68,16 @@ For example, you can create the directories like this:
   $ export VOLUMES=$HOME/.containers/spdo/volumes/mysql/
   $ mkdir -p $VOLUMES{log,lib,conf.d}
 
+The standard mysql configuration only accept local conections. The containers
+run as separeted hosts, so it is required to change the mysql configuration to
+accept conections from other hosts. It is possible to use the following code to
+download the configuration to the correct prepared directory.
+
+.. code:: bash
+
+  $ wget https://raw.githubusercontent.com/ramiroluz/docker-spdo/master/bind.cnf -O $VOLUMES/conf.d/bind.cnf
 
 Then, run the mysql server as follows:
-
 
 .. code:: bash
 

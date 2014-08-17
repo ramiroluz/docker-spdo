@@ -35,7 +35,7 @@ RUN cd $INSTALL_DIR/zinstance; ./bin/buildout -c develop.cfg
 
 # SPDO mysql connection
 ADD config.py $INSTALL_DIR/zinstance/src/il.spdo/il/spdo/config.py
-ADD profiles/default/saconnections.xml $INSTALL_DIR/zinstance/src/il.spdo/il/spdo/profiles/default/saconnections.xml
+ADD saconnections.xml $INSTALL_DIR/zinstance/src/il.spdo/il/spdo/profiles/default/saconnections.xml
 
 RUN mkdir -p $INSTALL_DIR/anexos
 RUN chown -R plone.plone $INSTALL_DIR/anexos
