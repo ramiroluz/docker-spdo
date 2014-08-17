@@ -12,17 +12,18 @@ Image
 You can `pull` a ready to use image from Docker
 [index](https://index.docker.io/u/ramiroluz/) running:
 
-```
-$ docker pull ramiroluz/spdo
-```
+.. code:: bash
+
+  $ docker pull ramiroluz/spdo
+
 
 Or build this repository:
 
-```
-$ git clone https://github.com/ramiroluz/docker-spdo.git
-$ cd docker-spdo/
-$ docker build -t ramiroluz/spdo .
-```
+.. code:: bash
+  $ git clone https://github.com/ramiroluz/docker-spdo.git
+  $ cd docker-spdo/
+  $ docker build -t ramiroluz/spdo .
+
 
 Change `ramiroluz/spdo` to your Docker index username.
 
@@ -55,30 +56,30 @@ You pass with `-e` docker option.
 
 For example, you can create the directories like this:
 
-```
-$ export VOLUMES=$HOME/.containers/spdo/volumes/mysql/
-$ mkdir -p $VOLUMES{log,lib,conf.d}
-```
+.. code:: bash
+  $ export VOLUMES=$HOME/.containers/spdo/volumes/mysql/
+  $ mkdir -p $VOLUMES{log,lib,conf.d}
+
 
 Then, run the mysql server as follows:
 
-```
-$ docker run --name mysql_1 -p 3306:3306 -d \
-  -v $VOLUMES/log:/var/log/mysql \ 
-  -v $VOLUMES/lib:/var/lib/mysql \
-  -v $VOLUMES/conf.d:/etc/mysql/conf.d \
-  -e MYSQL_ROOT_PASSWORD=myrootpassword \
-  -e MYSQL_DATABASE=spdo -e MYSQL_USER=myuser \
-  -e MYSQL_PASSWORD=mypassword -t wiliamsouza/docker-mysql
-```
+
+.. code:: bash
+  $ docker run --name mysql_1 -p 3306:3306 -d \
+    -v $VOLUMES/log:/var/log/mysql \ 
+    -v $VOLUMES/lib:/var/lib/mysql \
+    -v $VOLUMES/conf.d:/etc/mysql/conf.d \
+    -e MYSQL_ROOT_PASSWORD=myrootpassword \
+    -e MYSQL_DATABASE=spdo -e MYSQL_USER=myuser \
+    -e MYSQL_PASSWORD=mypassword -t wiliamsouza/docker-mysql
 
 To get a shell access:
 
-```
-$ docker run --name spdo -i -p 8380:8380 \
-  --link mysql_1:mysql_1 -t ramiroluz/spdo \
-  /bin/bash
-```
+.. code:: bash
+
+  $ docker run --name spdo -i -p 8380:8380 \
+    --link mysql_1:mysql_1 -t ramiroluz/spdo \
+    /bin/bash
 
 The command above will start a container give you a shell. Don't
 forget to start the service running the `startup &` script.
@@ -86,10 +87,9 @@ forget to start the service running the `startup &` script.
 
 Usage:
 
-```
-$ docker run --name spdo -d -p 8380:8380 \
-  --link mysql_1:mysql_1 -t ramiroluz/spdo \
-  /usr/local/bin/startup
-```
+.. code:: bash
+  $ docker run --name spdo -d -p 8380:8380 \
+    --link mysql_1:mysql_1 -t ramiroluz/spdo \
+    /usr/local/bin/startup
 
 The command above will start a container and return its ID.
