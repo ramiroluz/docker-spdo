@@ -6,6 +6,12 @@ SPDO is a system for documents protocol control, used in city
 legislative chambers on Brazil. This is one of the Interlegis
 free software products.
 
+After installing docker you could add your user to the docker group.
+
+.. code:: bash
+
+  $ sudo gpasswd -a $USER docker
+
 Image
 -----
 
