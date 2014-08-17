@@ -20,6 +20,7 @@ You can `pull` a ready to use image from Docker
 Or build this repository:
 
 .. code:: bash
+
   $ git clone https://github.com/ramiroluz/docker-spdo.git
   $ cd docker-spdo/
   $ docker build -t ramiroluz/spdo .
@@ -57,6 +58,7 @@ You pass with `-e` docker option.
 For example, you can create the directories like this:
 
 .. code:: bash
+
   $ export VOLUMES=$HOME/.containers/spdo/volumes/mysql/
   $ mkdir -p $VOLUMES{log,lib,conf.d}
 
@@ -65,6 +67,7 @@ Then, run the mysql server as follows:
 
 
 .. code:: bash
+
   $ docker run --name mysql_1 -p 3306:3306 -d \
     -v $VOLUMES/log:/var/log/mysql \ 
     -v $VOLUMES/lib:/var/lib/mysql \
@@ -88,6 +91,7 @@ forget to start the service running the `startup &` script.
 Usage:
 
 .. code:: bash
+
   $ docker run --name spdo -d -p 8380:8380 \
     --link mysql_1:mysql_1 -t ramiroluz/spdo \
     /usr/local/bin/startup
