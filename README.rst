@@ -16,7 +16,7 @@ Image
 -----
 
 You can `pull` a ready to use image from Docker
-[index](https://index.docker.io/u/ramiroluz/) running:
+(https://index.docker.io/u/ramiroluz/) running:
 
 .. code:: bash
 
@@ -39,7 +39,7 @@ Container
 
 This image uses volumes and environment variables to control the mysql server
 configuration, created by @wiliansouza. 
-[wiliansouza/docker-mysql](https://github.com/wiliansouza/docker-mysql.git).
+(https://github.com/wiliansouza/docker-mysql.git).
 
 Volumes:
 
