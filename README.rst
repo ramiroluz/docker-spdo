@@ -109,13 +109,7 @@ To get a shell access:
     /bin/bash
 
 The command above will start a container give you a shell. Don't
-forget to start the service running the `startup &` script.
+forget to start the service running the ``startup &`` script.
 
-Like this:
-
-.. code:: bash
-
-  # startup &
 
 After that the system should be available at http://localhost:8380
-
