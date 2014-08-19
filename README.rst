@@ -85,9 +85,20 @@ Then, run the mysql server as follows:
     -v $VOLUMES/log:/var/log/mysql \ 
     -v $VOLUMES/lib:/var/lib/mysql \
     -v $VOLUMES/conf.d:/etc/mysql/conf.d \
-    -e MYSQL_ROOT_PASSWORD=myrootpassword \
-    -e MYSQL_DATABASE=spdo -e MYSQL_USER=myuser \
+    -e MYSQL_ROOT_PASSWORD=interlegis \
+    -e MYSQL_DATABASE=spdo -e MYSQL_USER=admin \
     -e MYSQL_PASSWORD=mypassword -t wiliamsouza/docker-mysql
+
+Usage, ATTENTION, do not use it in production,
+you must change passwords first:
+
+.. code:: bash
+
+  $ docker run --name spdo -d -p 8380:8380 \
+    --link mysql_1:mysql_1 -t ramiroluz/spdo \
+    /usr/local/bin/startup
+
+The command above will start a container and return its ID.
 
 To get a shell access:
 
@@ -100,13 +111,11 @@ To get a shell access:
 The command above will start a container give you a shell. Don't
 forget to start the service running the `startup &` script.
 
-
-Usage:
+Like this:
 
 .. code:: bash
 
-  $ docker run --name spdo -d -p 8380:8380 \
-    --link mysql_1:mysql_1 -t ramiroluz/spdo \
-    /usr/local/bin/startup
+  # startup &
 
-The command above will start a container and return its ID.
+After that the system should be available at http://localhost:8380
+
