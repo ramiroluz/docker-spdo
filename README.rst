@@ -66,7 +66,7 @@ For example, you can create the directories like this:
 .. code:: bash
 
   $ export VOLUMES=$HOME/.containers/spdo/volumes/mysql/
-  $ mkdir -p $VOLUMES{log,lib,conf.d}
+  $ mkdir -p $VOLUMES{'log','lib','conf.d'}
 
 The standard mysql configuration only accept local conections. The containers
 run as separeted hosts, so it is required to change the mysql configuration to
